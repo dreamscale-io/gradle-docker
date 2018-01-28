@@ -1,7 +1,6 @@
 package org.dreamscale.gradle.docker
 
 import com.bancvue.gradle.test.AbstractPluginSpecification
-import org.gradle.api.Task
 import org.gradle.api.tasks.Exec
 
 class DockerPluginTest extends AbstractPluginSpecification {

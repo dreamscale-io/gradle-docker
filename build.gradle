@@ -1,6 +1,9 @@
 buildscript {
     ext {
-        gradleCoreVersion = "1.3.2"
+        // NOTE: this is the last version of gradle-core that does not have a dependency on gradle-docker
+        // advancing this version will create a circular build-time dependency between projects, though
+        // the runtime dependency is only one way, so not the end of the world if it does need to be advanced
+        gradleCoreVersion = "1.3.3"
     }
     dependencies {
         classpath "org.dreamscale:gradle-core:${gradleCoreVersion}"

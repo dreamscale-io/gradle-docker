@@ -35,7 +35,7 @@ class DockerPluginIntegrationTest extends AbstractPluginIntegrationSpecification
 
     private void initStandardBuildFile() {
         buildFile << """
-apply plugin: 'docker'
+apply plugin: 'org.dreamscale.docker'
 
 dockerContainers {
     defaultTag "9.5"
@@ -115,7 +115,7 @@ dockerContainers {
     def "should support referencing an image by name"() {
         String altContainerName = "test-two"
         buildFile << """
-apply plugin: 'docker'
+apply plugin: 'org.dreamscale.docker'
 
 dockerContainers {
     image {
@@ -148,7 +148,7 @@ dockerContainers {
         given:
         containerName = "hello"
         buildFile << """
-apply plugin: 'docker'
+apply plugin: 'org.dreamscale.docker'
 
 dockerContainers {
     container {

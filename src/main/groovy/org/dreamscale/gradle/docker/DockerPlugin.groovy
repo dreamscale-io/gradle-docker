@@ -7,7 +7,7 @@ import org.gradle.api.tasks.Exec
 
 class DockerPlugin implements Plugin<Project> {
 
-    static final String PLUGIN_NAME = "docker"
+    static final String PLUGIN_NAME = "org.dreamscale.docker"
     static final String LIFECYCLE_GROUP = "Container Lifecycle"
 
     static DockerPlugin find(Project project) {
