@@ -24,3 +24,7 @@ dependencies {
 }
 
 check.dependsOn integrationTest
+
+bintray {
+	publications = ['gradleDocker']
+}
