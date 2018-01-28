@@ -1,0 +1,12 @@
+language: java
+sudo: required
+jdk:
+  - oraclejdk8
+services:
+    - docker
+cache:
+  directories:
+    - $HOME/.gradle/wrapper/
+notifications:
+  email:
+    - janelle@dreamscale.io
