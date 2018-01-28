@@ -23,10 +23,6 @@ class DockerExtension {
         }
     }
 
-    void defaultPullImage(Boolean defaultPullImage) {
-        processor.defaultPullImage = defaultPullImage
-    }
-
     void defaultRegistryHost(String defaultRegistryHost) {
         imageNameFactory.defaultRegistryHost = defaultRegistryHost
     }
