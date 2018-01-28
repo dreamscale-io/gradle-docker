@@ -39,7 +39,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "containerSet should create multiple containers"() {
         when:
-        project.docker {
+        project.dockerContainers {
             containerSet {
                 name "test-container"
                 size 2
@@ -60,7 +60,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should support referencing an image by name"() {
         when:
-        project.docker {
+        project.dockerContainers {
             image {
                 name "test-image"
             }
@@ -84,7 +84,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should add group tasks to operate on all images/containers"() {
         when:
-        project.docker {
+        project.dockerContainers {
             container {
                 name "test"
                 image {
@@ -110,7 +110,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should only add grouped image tasks if only defining an image"() {
         when:
-        project.docker {
+        project.dockerContainers {
             image {
                 name "test-image"
             }
@@ -131,7 +131,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should not add grouped tasks if no image or container defined"() {
         when:
-        project.docker {}
+        project.dockerContainers {}
         evaluateProject()
 
         then:
@@ -145,7 +145,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should not add container to removeAllContainers task if data volume container"() {
         when:
-        project.docker {
+        project.dockerContainers {
             container {
                 name "data"
                 dataVolumeContainer()
@@ -162,7 +162,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should handle tags in image name"() {
         when:
-        project.docker {
+        project.dockerContainers {
             image {
                 name "dreamscale/test-image:1.1"
             }
@@ -175,7 +175,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should translate container options to command line arguments"() {
         when:
-        project.docker {
+        project.dockerContainers {
             container {
                 name "container"
                 hostname "localhost"
@@ -208,7 +208,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should link to referenced container tasks"() {
         when:
-        project.docker {
+        project.dockerContainers {
             container {
                 name "base"
             }
@@ -247,7 +247,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should incorporate defaultRegistryHost, defaultRegistryUsername and defaultTag into image names"() {
         when:
-        project.docker {
+        project.dockerContainers {
             defaultTag "1.0"
             defaultRegistryHost "host"
             defaultRegistryUsername "username"
@@ -286,7 +286,7 @@ class DockerPluginTest extends AbstractPluginSpecification {
 
     def "should be able to reference dockerhub image if defaultRegistryHost is specified"() {
         when:
-        project.docker {
+        project.dockerContainers {
             defaultRegistryHost "host"
             defaultRegistryUsername "username"
             container {

@@ -37,7 +37,7 @@ class DockerPluginIntegrationTest extends AbstractPluginIntegrationSpecification
         buildFile << """
 apply plugin: 'docker'
 
-docker {
+dockerContainers {
     defaultTag "9.5"
     container {
         name "${containerName}"
@@ -117,7 +117,7 @@ docker {
         buildFile << """
 apply plugin: 'docker'
 
-docker {
+dockerContainers {
     image {
         name "${imageName}"
     }
@@ -150,7 +150,7 @@ docker {
         buildFile << """
 apply plugin: 'docker'
 
-docker {
+dockerContainers {
     container {
         name "${containerName}"
         imageName "hello-world"

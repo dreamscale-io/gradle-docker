@@ -6,7 +6,7 @@ import org.gradle.util.ConfigureUtil
 
 class DockerExtension {
 
-    static final String NAME = "docker"
+    static final String NAME = "dockerContainers"
 
     private Project project
     private DockerExtensionProcessor processor
