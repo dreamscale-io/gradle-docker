@@ -30,4 +30,7 @@ check.dependsOn integrationTest
 
 bintray {
 	publications = ['gradleDocker']
+    pkg {
+        licenses = ['Apache-2.0']
+    }
 }
